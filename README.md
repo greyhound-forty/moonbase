@@ -16,6 +16,6 @@ git clone https://github.com/greyhound-forty/moonbase.git "${MOONBASE:-$HOME}/.m
 ```
 setopt EXTENDED_GLOB
 for cfgfile in "${MOONBASE:-$HOME}/.moonbase/runcoms/^README.md(.N); do
-  ln -s "$cfgile" "${MOONBASE:-$HOME}/.${cfgfile:t}"
+  ln -s "$cfgfile" "${MOONBASE:-$HOME}/.${cfgfile:t}"
 done
 ```
