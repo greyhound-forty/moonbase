@@ -1,0 +1,98 @@
+## API
+#### Digital Ocean
+    curl -H "Authorization: token $ditoken" --data '{"title":"NAME_OF_KEY","key":"ACTUAL_KEY"}' https://api.github.com/user/keys
+
+
+
+
+@@what about optparse here for help
+
+### ADD A Record
+    curl  -H "X-DNSimple-Token: greyhoundforty@gmail.com:$DNS_API" \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '{ "record": { "name": "testingapi", "record_type": "A", "content": "1.2.3.1", "ttl": 3600 } }' \
+      https://api.dnsimple.com/v1/domains/inchhighassassins.com/records
+ 848*600
+
+### ADD MX Record
+
+    curl  -H "X-DNSimple-Token: greyhoundforty@gmail.com:$DNS_API" \
+      -H 'Accept: application/Sjson' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '{ "record": { "name": "", "record_type": "MX", "content": "mx.example.com", "ttl": 3600, "prio": 10 } }' \
+      https://api.dnsimple.com/v1/domains/inchhighassassins.com/records
+
+
+    curl -H "X-DNSimple-Token: greyhoundforty@gmail.com:$DNS_API" \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '{ "record": { "name": "arkham", "record_type": "A", "content": "104.131.116.75", "ttl": 3600 } }' \
+      https://api.dnsimple.com/v1/domains/inchhighassassins.com/records
+
+
+
+      curl -s -X POST "https://api.digitalocean.com/v2/droplets" \
+      -d '{"name":"Testing","region":"nyc1","size":"512mb","name":"Ubuntu 14.04 x64"}' \
+      -H "Authorization: Bearer $DI_API" \
+      -H "Content-Type: application/json"
+
+
+
+curl -X DELETE "https://api.digitalocean.com/v2/droplets/$1" -H "Authorization: Bearer $DI_API" -H "Content-Type: application/x-www-form-urlencoded";
+
+
+curl -su <APIKEY>:U -XDELETE  https://api.copperegg.com/v2/revealapp/samples.json -H "Content-Type: application/json" -d '{"group": 0, "queries": [{"idvs": ["Q0yXm8TnVaPQwf00|"], "keys": ["user_times"]}]}'
+
+
+
+#### CopperEgg
+curl -isk -u $ckey:U http://api.copperegg.com/v2/revealmetrics
+
+
+
+curl -sk http://Izeu5FIXlsl36DCa@api.copperegg.com/rc.sh | RC_UUID="9815a444b0c25f2a019f4483ec11c6c6" sh
+
+### Zendesk api
+
+curl https://copperegg.zendesk.com/api/v2/tickets.json -v -u ryan.tiffany@copperegg.com/token:FpMMGoqW0AlA2OJtFfkXkOT71IsMs0YA57s53p2W
+
+## Softlayer
+#### Softlayer REST API curl to create new instance
+{
+    "parameters": [
+        {
+            "blockDevices": [
+                {
+                    "device": 0,
+                    "diskImage": {
+                        "capacity": "100"
+                    }
+                }
+            ],
+            "userData": [
+                {
+                    "value": "ghapi=d20087d60c2d9dad41654f4408dbfd78b5b79350"
+                }
+            ],
+            "sshKeys": [
+                {
+                    "id": 187111
+                }
+            ],
+            "datacenter": {
+                "name": "hou02"
+            },
+            "domain": "tinybot.io",
+            "hourlyBillingFlag": true,
+            "localDiskFlag": false,
+            "maxMemory": "2",
+            "hostname": "apitest",
+            "startCpus": "2",
+            "operatingSystemReferenceCode": "UBUNTU_LATEST_64"
+        }
+    ]
+}

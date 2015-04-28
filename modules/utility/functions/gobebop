@@ -1,0 +1,4 @@
+function gobebop {
+
+	mosh --ssh="ssh -p 3376" ryan@bebop.tinybot.io
+}
