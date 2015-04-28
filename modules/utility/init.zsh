@@ -264,10 +264,6 @@ function transfer { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\n
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }; alias transfer=transfer
 
 
-# Create a new stikked post from a file - output will be the URL of the stikked post
-# Usage: stik "Name" /path/to/file
-function stik { curl -d title="$1" -d name='Ryan' --data-urlencode text@$2 http://bebop.tinybot.io/api/create ; }
-
 # Run a mosh connection to a server
 # Usage: msh PORT X.X.X.X
 function msh { mosh --ssh="ssh -p $1" $2; }
@@ -284,9 +280,6 @@ function gblhist { find $homebase/hosts -type f -iname "*.zhistory" -print0 | xa
 # Usage: aurunpack
 function aurunpack { tar -xvzf ${LASTAURPKG}.tar.gz; }
 
-# Search the quickcommands file
-# Usage: qc 'string'
-function qc { egrep "$@" $HOME/.zprezto/modules/softlayer/quickcommands; }
 
 # Try to decompress common compressed archives.
 # Usage: extract file.tar.gz
@@ -343,20 +336,6 @@ function psu {
 # Usage: objstorage
 function objstorage { cat $HOME/.zprezto/modules/softlayer/objectstoragecommands; }
 
-function s1ssh {
- file=$HOME/ssh_config
- if [ ! -e "$file" ] ; then
-     touch "$file"
- fi
- /usr/bin/ssh -t -F $HOME/ssh_config "$@" "export RUSER=$(whoami) ; echo $(whoami) logging in at $(date) >> .bash_history ; if [ \`uname -n | grep rescue | wc -l\` = 1 ] ; then echo "This is
- rescue" ; if [ ! -f /etc/redhat-release ] ; then apt-get install -y lsof curl screen bc ; else yum -y install bc screen lsof curl smartmontools dos2unix ; fi ; fi ; if [ ! -f
-/usr/bin/curl -  a -f /usr/bin/apt-get ] ; then apt-get install -y curl bc lsof screen ; fi ; scr=\`curl -s https://dl.dropboxusercontent.com/u/131462/Work/functions.sh\`;
-exec 75<>\`mktemp -u /tmp/  tmp.XXXXXXXXXX\`; printf   \"%s\n\" \"\$scr\" >&75; if [ -e /bin/bash ] ; then /bin/bash --rcfile /dev/fd/75 -i; else /usr/local/bin/bash --rcfile <(curl -s
-https://dl.dropboxusercontent.com/u/131462/Work/functions.sh) -i; fi ;" ; }
-
-# Search saved Softlayer KB's from local kb file
-# Usage: kb SEARCHSTRING
-function kb { egrep "$@" /home/ryan/.zprezto/modules/softlayer/kb; }
 
 # Search the .zhistory file
 # Usage: hist thing
@@ -387,23 +366,12 @@ function ncz { netcat -z -v "$1" "$2"; }
 #
 function nca { sudo netcat -z -n -v "$1" "$2" 2>&1 | grep succeeded; }
 
-#Exports
-export ce_api='e27MO4EchBEZ0fUo'
-export dns_api='TdTCzZGWFJAK6nHRtP8Q'
-export di_api='e6fd7cb520d8e7fa46daf7be76f302b86765f4b0e39e0157749ff53631c4f639'
-export wk_usr='ryant'
-export wk_api='c00b3d33cb1467d7def58b4390bc63e2aa1a73f7f455cb16c1147db500dc5445'
-export sl_api='7be320fe8dbf3c895bc7b1c49610d326e2e093c7772ff760bd54754878580be5'
-export sl_usr='SL228638'
-export gh_api='d20087d60c2d9dad41654f4408dbfd78b5b79350'
 
 # More Aliases
-alias db='/home/ryan/bin/dropbox.py'
 alias sn='sudo nano -w'
 alias gs='git status'
 alias tdl='todo.sh ls'
 alias tsw='tmux swap-window'
-alias dbp='/home/ryan/bin/dropbox.py puburl'
 alias updb='sudo updatedb'
 alias tda='todo.sh -a'
 alias tda='todo.sh add'
