@@ -222,7 +222,7 @@ function pushdls {
 # Quickly add a new alias to the utility module in prezto
 # Usage: adal tdl "todo.sh ls" would create the line alias tdl='todo.sh ls' in modules/utility/init.zsh
 function adal {
-	 echo "alias $1='$2'" >> ${ZDOTDIR:-$HOME}/.zprezto/modules/utility/init.zsh
+	 echo "alias $1='$2'" >> ${MOONBASE:-$HOME}/.zprezto/modules/utility/init.zsh
 }
 
 
@@ -239,7 +239,7 @@ function popdls {
 # Pulls the description of the various FUNCTIONS in "$HOME/.zprezto/modules/utility/init.zsh"
 # Usage: define FUNCTION
 function define {
- grep -B2 "$@" ${ZDOTDIR:-$HOME}/.zprezto/modules/utility/init.zsh | grep -v function
+ grep -B2 "$@" ${MOONBASE:-$HOME}/.zprezto/modules/utility/init.zsh | grep -v function
 }
 
 # Removes a conflicting ssh-key from the known hosts file
@@ -272,7 +272,7 @@ function msh { mosh --ssh="ssh -p $1" $2; }
 # Usage: aurget plexmediaserver
 function aurget { export LASTAURPKG=${1}; wget https://aur.archlinux.org/packages/${1:0:2}/${1}/${1}.tar.gz; }
 
-# Search global zhistory files that have been stored in the ${ZDOTDIR:-$HOME}/.zprezto/hosts directory
+# Search global zhistory files that have been stored in the ${MOONBASE:-$HOME}/.zprezto/hosts directory
 # Usage: gblhist SEARCHTERM
 function gblhist { find $homebase/hosts -type f -iname "*.zhistory" -print0 | xargs -0 egrep "$@" ; }
 
