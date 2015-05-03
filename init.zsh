@@ -31,7 +31,7 @@ function pmodload {
   pmodules=("$argv[@]")
 
   # Add functions to $fpath.
-  fpath=(${pmodules:+${MOONBASE:-$HOME}/.zprezto/modules/${^pmodules}/functions(/FN)} $fpath)
+  fpath=(${pmodules:+${MOONBASE:-$HOME}/.moonbase/modules/${^pmodules}/functions(/FN)} $fpath)
 
   function {
     local pfunction
@@ -40,7 +40,7 @@ function pmodload {
     setopt LOCAL_OPTIONS EXTENDED_GLOB
 
     # Load Prezto functions.
-    for pfunction in ${MOONBASE:-$HOME}/.zprezto/modules/${^pmodules}/functions/$~pfunction_glob; do
+    for pfunction in ${MOONBASE:-$HOME}/.moonbase/modules/${^pmodules}/functions/$~pfunction_glob; do
       autoload -Uz "$pfunction"
     done
   }
@@ -49,19 +49,19 @@ function pmodload {
   for pmodule in "$pmodules[@]"; do
     if zstyle -t ":prezto:module:$pmodule" loaded 'yes' 'no'; then
       continue
-    elif [[ ! -d "${MOONBASE:-$HOME}/.zprezto/modules/$pmodule" ]]; then
+    elif [[ ! -d "${MOONBASE:-$HOME}/.moonbase/modules/$pmodule" ]]; then
       print "$0: no such module: $pmodule" >&2
       continue
     else
-      if [[ -s "${MOONBASE:-$HOME}/.zprezto/modules/$pmodule/init.zsh" ]]; then
-        source "${MOONBASE:-$HOME}/.zprezto/modules/$pmodule/init.zsh"
+      if [[ -s "${MOONBASE:-$HOME}/.moonbase/modules/$pmodule/init.zsh" ]]; then
+        source "${MOONBASE:-$HOME}/.moonbase/modules/$pmodule/init.zsh"
       fi
 
       if (( $? == 0 )); then
         zstyle ":prezto:module:$pmodule" loaded 'yes'
       else
         # Remove the $fpath entry.
-        fpath[(r)${MOONBASE:-$HOME}/.zprezto/modules/${pmodule}/functions]=()
+        fpath[(r)${MOONBASE:-$HOME}/.moonbase/modules/${pmodule}/functions]=()
 
         function {
           local pfunction
@@ -71,7 +71,7 @@ function pmodload {
           setopt LOCAL_OPTIONS EXTENDED_GLOB
 
           # Unload Prezto functions.
-          for pfunction in ${MOONBASE:-$HOME}/.zprezto/modules/$pmodule/functions/$~pfunction_glob; do
+          for pfunction in ${MOONBASE:-$HOME}/.moonbase/modules/$pmodule/functions/$~pfunction_glob; do
             unfunction "$pfunction"
           done
         }
@@ -87,8 +87,8 @@ function pmodload {
 #
 
 # Source the Prezto configuration file.
-if [[ -s "${MOONBASE:-$HOME}/.zpreztorc" ]]; then
-  source "${MOONBASE:-$HOME}/.zpreztorc"
+if [[ -s "${MOONBASE:-$HOME}/.moonbaserc" ]]; then
+  source "${MOONBASE:-$HOME}/.moonbaserc"
 fi
 
 # Disable color and theme in dumb terminals.

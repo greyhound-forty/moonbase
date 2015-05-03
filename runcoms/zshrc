@@ -6,12 +6,12 @@
 #
 
 # Source Prezto.
-if [[ -s "${MOONBASE:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${MOONBASE:-$HOME}/.zprezto/init.zsh"
+if [[ -s "${MOONBASE:-$HOME}/.moonbase/init.zsh" ]]; then
+  source "${MOONBASE:-$HOME}/.moonbase/init.zsh"
 fi
 
-if [[ -s "${MOONBASE:-$HOME}/.zprezto/modules/syntax-highlighting/external/zsh-syntax-highlighting.zsh" ]]; then
-   source "${MOONBASE:-$HOME}/.zprezto/modules/syntax-highlighting/external/zsh-syntax-highlighting.zsh"
+if [[ -s "${MOONBASE:-$HOME}/.moonbase/modules/syntax-highlighting/external/zsh-syntax-highlighting.zsh" ]]; then
+   source "${MOONBASE:-$HOME}/.moonbase/modules/syntax-highlighting/external/zsh-syntax-highlighting.zsh"
 fi
 
 if [[ -d "$HOME/.rvm/bin" ]]; then

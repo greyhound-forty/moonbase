@@ -177,14 +177,14 @@ fi
 # Usage: get_git_branch
 function get_git_branch { git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'; }
 
-# Checkout a zprezto git branch named after servers hostname
+# Checkout a.moonbase git branch named after servers hostname
 # Usage: githost
-function githost { hst=$(hostname -s); cd $HOME/.zprezto; git checkout -b "$hst"; }
+function githost { hst=$(hostname -s); cd $HOME/.moonbase; git checkout -b "$hst"; }
 
 
-# Source .zprezto/modules/utility/init.zsh after adding new functions or aliases
+# Source .moonbase/modules/utility/init.zsh after adding new functions or aliases
 # Usage: rld
-function rld { source $HOME/.zprezto/modules/utility/init.zsh; }
+function rld { source $HOME/.moonbase/modules/utility/init.zsh; }
 
 # Makes a directory and changes to it.
 # Usage: mkdcd /var/foo/bar
@@ -222,7 +222,7 @@ function pushdls {
 # Quickly add a new alias to the utility module in prezto
 # Usage: adal tdl "todo.sh ls" would create the line alias tdl='todo.sh ls' in modules/utility/init.zsh
 function adal {
-	 echo "alias $1='$2'" >> ${MOONBASE:-$HOME}/.zprezto/modules/utility/init.zsh
+	 echo "alias $1='$2'" >> ${MOONBASE:-$HOME}/.moonbase/modules/utility/init.zsh
 }
 
 
@@ -236,10 +236,10 @@ function popdls {
   builtin popd "$argv[-1]" && ls "${(@)argv[1,-2]}"
 }
 
-# Pulls the description of the various FUNCTIONS in "$HOME/.zprezto/modules/utility/init.zsh"
+# Pulls the description of the various FUNCTIONS in "$HOME/.moonbase/modules/utility/init.zsh"
 # Usage: define FUNCTION
 function define {
- grep -B2 "$@" ${MOONBASE:-$HOME}/.zprezto/modules/utility/init.zsh | grep -v function
+ grep -B2 "$@" ${MOONBASE:-$HOME}/.moonbase/modules/utility/init.zsh | grep -v function
 }
 
 # Removes a conflicting ssh-key from the known hosts file
@@ -272,7 +272,7 @@ function msh { mosh --ssh="ssh -p $1" $2; }
 # Usage: aurget plexmediaserver
 function aurget { export LASTAURPKG=${1}; wget https://aur.archlinux.org/packages/${1:0:2}/${1}/${1}.tar.gz; }
 
-# Search global zhistory files that have been stored in the ${MOONBASE:-$HOME}/.zprezto/hosts directory
+# Search global zhistory files that have been stored in the ${MOONBASE:-$HOME}/.moonbase/hosts directory
 # Usage: gblhist SEARCHTERM
 function gblhist { find $homebase/hosts -type f -iname "*.zhistory" -print0 | xargs -0 egrep "$@" ; }
 
@@ -334,7 +334,7 @@ function psu {
 
 # Get random commands for interacting with Object Storage
 # Usage: objstorage
-function objstorage { cat $HOME/.zprezto/modules/softlayer/objectstoragecommands; }
+function objstorage { cat $HOME/.moonbase/modules/softlayer/objectstoragecommands; }
 
 
 # Search the .zhistory file
