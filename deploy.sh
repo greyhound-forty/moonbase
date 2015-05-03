@@ -28,21 +28,21 @@ for i in `cat "$HOME"/pkglist`; do
     else
         echo "$i" not installed, installing now;
         sudo apt-get install -y "$i"
-    fi
-; done
-
+    fi; done
 
 ssh-keygen -b 2048 -N '' -f "$HOME"/.ssh/id_rsa -t rsa -q
 echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> "$HOME"/.ssh/config
-
 
 ## Grab repo with prezto setup
 
 git clone --recursive https://github.com/greyhound-forty/moonbase.git "${MOONBASE:-$HOME}/.moonbase"
 
 chsh -s /bin/zsh
+if [[ -f "$HOME"/.zshrc ]]; then
+    rm -f "$HOME"/.zshrc
+fi    
 
-chmod "$HOME"/.moonbase/post_install.zsh
+chmod +x "$HOME"/.moonbase/post_install.zsh
 /bin/zsh "$HOME"/.moonbase/post_install.zsh
 
 curl -s ping.gg/ryantiffany@gmail.com >/dev/null 2>&1
