@@ -15,7 +15,7 @@ My default home environment for new servers
 
 2. Clone the repository:
 
-        git clone https://github.com/greyhound-forty/moonbase.git "${MOONBASE:-$HOME}/.moonbase
+        git clone --recursive https://github.com/greyhound-forty/moonbase.git "${MOONBASE:-$HOME}/.moonbase"
 
 3. Start a zsh session (just type in zsh) and then create your new Zsh configuration by copying the configuration files:
 
