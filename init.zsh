@@ -87,8 +87,8 @@ function pmodload {
 #
 
 # Source the Prezto configuration file.
-if [[ -s "${MOONBASE:-$HOME}/.moonbaserc" ]]; then
-  source "${MOONBASE:-$HOME}/.moonbaserc"
+if [[ -s "${MOONBASE:-$HOME}/.zpreztorc" ]]; then
+  source "${MOONBASE:-$HOME}/.zpreztorc"
 fi
 
 # Disable color and theme in dumb terminals.
