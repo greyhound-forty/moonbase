@@ -9,24 +9,6 @@ My default home environment for new servers
 
 ### Installation  
 
-1. To setup a new shell make sure that git, zsh, keychain, and tmux are installed.
+    wget https://raw.githubusercontent.com/greyhound-forty/moonbase/master/deploy.sh | sh
 
-        [apt-get/yum] update && [apt-get/yum/ install git zsh tmux keychain -y
-
-2. Clone the repository:
-
-        git clone --recursive https://github.com/greyhound-forty/moonbase.git "${MOONBASE:-$HOME}/.moonbase"
-
-3. Start a zsh session (just type in zsh) and then create your new Zsh configuration by copying the configuration files:
-
-        setopt EXTENDED_GLOB
-	for cfgfile in "${MOONBASE:-$HOME}/.moonbase/runcoms/^README.md(.N); do        
-	    ln -s "$cfgfile" "${MOONBASE:-$HOME}/.${cfgfile:t}"
-        done
-
-4. Set Zsh as your default shell:
-
-        chsh -s /bin/zsh
-
-5. Open a new Zsh terminal window or tab.
-
+    
