@@ -93,8 +93,8 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # Auto set to 'off' on dumb terminals.
 # Set theme based on hostname
 
- zstyle ':prezto:module:prompt' theme 'skwp'
-
+zstyle ':prezto:module:prompt' theme 'cloud' \
+  '[<*>]'
 # Ruby
 #
 # steeef
