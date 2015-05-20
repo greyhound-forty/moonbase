@@ -146,6 +146,22 @@ Functions
   - `prep` provides a grep-like pattern search.
   - `psub` provides a sed-like pattern substitution.
 
+
+
+### Custom defined functions
+
+  - `fp` perform an fping on a range of IP's  
+  Example: `fp 10.0.30.12 10.0.30.40`
+  
+
+  - `ncz` perform netcat to a specific port  
+
+  Example: 
+  ryan@sandbox ~ $ ncz 10.90.20.99 3376  
+  Connection to 10.90.20.99 3376 port [tcp/*] succeeded!
+
+  
+  
 Authors
 -------
 
