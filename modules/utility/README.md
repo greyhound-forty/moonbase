@@ -150,22 +150,20 @@ Functions
 
 ### Custom defined functions
 
-  - `fp` perform an fping on a range of IP's  
-  Example: `fp 10.0.30.12 10.0.30.40`
-  
-
   - `ncz` perform netcat to a specific port   
     Example: 
     ncz 10.90.20.99 3376  
     Connection to 10.90.20.99 3376 port [tcp/*] succeeded!
 
-```
-ryan@bebop ~ $ fp 50.23.35.26 50.23.35.30
-50.23.35.26 is alive
-50.23.35.27 is alive
-50.23.35.28 is alive
-50.23.35.29 is alive
-50.23.35.30 is unreachable
+  - `fp` perform an fping on a range of IP's  
+  Example:  
+``` 
+$ fp 10.23.34.26 10.23.34.30
+10.23.34.26 is alive
+10.23.34.27 is alive
+10.23.34.28 is alive
+10.23.34.29 is alive
+10.23.34.30 is unreachable
 
        5 targets
        4 alive
