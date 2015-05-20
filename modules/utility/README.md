@@ -154,11 +154,10 @@ Functions
   Example: `fp 10.0.30.12 10.0.30.40`
   
 
-  - `ncz` perform netcat to a specific port  
-
-  Example: 
-  ryan@sandbox ~ $ ncz 10.90.20.99 3376  
-  Connection to 10.90.20.99 3376 port [tcp/*] succeeded!
+  - `ncz` perform netcat to a specific port   
+    Example: 
+    ncz 10.90.20.99 3376  
+    Connection to 10.90.20.99 3376 port [tcp/*] succeeded!
 
   
   
