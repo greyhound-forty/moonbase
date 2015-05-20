@@ -159,6 +159,29 @@ Functions
     ncz 10.90.20.99 3376  
     Connection to 10.90.20.99 3376 port [tcp/*] succeeded!
 
+```
+ryan@bebop ~ $ fp 50.23.35.26 50.23.35.30
+50.23.35.26 is alive
+50.23.35.27 is alive
+50.23.35.28 is alive
+50.23.35.29 is alive
+50.23.35.30 is unreachable
+
+       5 targets
+       4 alive
+       1 unreachable
+       0 unknown addresses
+
+       1 timeouts (waiting for response)
+       6 ICMP Echos sent
+       4 ICMP Echo Replies received
+       0 other ICMP received
+
+ 7.71 ms (min round trip time)
+ 9.76 ms (avg round trip time)
+ 10.8 ms (max round trip time)
+        1.377 sec (elapsed real time)
+```
   
   
 Authors
