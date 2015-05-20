@@ -166,7 +166,7 @@ fi
 # Miscellaneous
 
 # Serves a directory via HTTP.
-#alias http-serve='python -m SimpleHTTPServer'
+alias http-serve='python -m SimpleHTTPServer'
 # find out how to check if module is installed and if it is then use this function
 
 #
