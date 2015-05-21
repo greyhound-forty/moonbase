@@ -361,6 +361,9 @@ function st { stat -c '%n %a' "$@"; }
 # Usage: ncz IP PORT
 function ncz { netcat -z -v "$1" "$2"; }
 
+# Look for domain redirects
+# Usage: curlt domain.com
+function curlt { curl -sL -w "%{http_code} %{url_effective}\\n" "http://"$1"" -o /dev/null }
 
 #
 #
